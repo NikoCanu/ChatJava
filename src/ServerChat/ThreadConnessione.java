@@ -29,6 +29,7 @@ public class ThreadConnessione implements Runnable {
 					primo=false;
 				}else {
 					listaClient.sendAll(nomeClient + ": " + messaggio,client);
+					System.out.println(nomeClient + ": " + messaggio);
 				}			
 			}
 		} catch (IOException e) {		
