@@ -1,12 +1,10 @@
 package ClientChat;
 
-import GUI.ChatGui;
-
 import java.io.IOException;
 import java.net.Socket;
 
 public class ClientMain {
-	 public static void main(ChatGui chat){
+	 public static void main(){
 		 Socket clientSocket;  
 		 try {
 			clientSocket = new Socket("localhost",5500);

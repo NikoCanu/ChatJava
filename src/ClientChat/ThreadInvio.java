@@ -1,7 +1,5 @@
 package ClientChat;
 
-import GUI.ChatGui;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -17,7 +15,6 @@ public class ThreadInvio implements Runnable{
 		this.message = message;
 	}
 	public void run() {
-
 		out.println(message);
 		out.flush();
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class MainServer {
 	public static void main(String[] args) {
-		final int PORT = 5500;
+		final int PORT = 9876;
         try {
 			ServerSocket serverSocket = new ServerSocket(PORT);
 			ArrayList<Thread> listaThreadConnessioni = new ArrayList<Thread>();

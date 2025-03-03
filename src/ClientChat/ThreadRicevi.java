@@ -1,7 +1,6 @@
 package ClientChat;
 
-import GUI.ChatGui;
-
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,12 +9,13 @@ import java.net.Socket;
 public class ThreadRicevi implements Runnable{
 	private Socket socket;
 	 BufferedReader in;
-	 private ChatGui chat;
+	 private JTextArea textArea;
 
-	public  ThreadRicevi(Socket socket, ChatGui chat) throws IOException {
+
+	public  ThreadRicevi(Socket socket, JTextArea textArea) throws IOException {
 		this.socket=socket;
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		this.chat=chat;
+		this.textArea = textArea;
 	} 
 	public void run() {
 		String messaggio;
@@ -23,8 +23,8 @@ public class ThreadRicevi implements Runnable{
 			messaggio = in.readLine();
 		
 			while(messaggio!=null){
-				chat.appendMsg(messaggio);
 				System.out.println(messaggio);
+				textArea.append(messaggio+";\n");
 				messaggio = in.readLine();
 			}
 			System.out.println("Server Chiuso");
