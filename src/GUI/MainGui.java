@@ -6,6 +6,7 @@ import ClientChat.ThreadRicevi;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Random;
 
@@ -47,7 +48,7 @@ public class MainGui {
         frame.dispose();
         //int porta = new Random().nextInt(2000, 9999);
         try {
-            Socket socketInvio = new Socket("localhost", 9876);
+            Socket socketInvio = new Socket(InetAddress.getLocalHost(), 9876);
 
             ThreadInvio connect = new ThreadInvio(socketInvio, text);
             Thread thread = new Thread(connect);
